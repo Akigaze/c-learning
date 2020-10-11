@@ -8,6 +8,7 @@ int main() {
     printf("sizeof(a) = %d \n", sizeof(a));
 
     char b[5] = "12345";
+    printf("b = %s \n", b);
     printf("sizeof(b) = %d \n", sizeof(b));
     for (int i = 0; i < sizeof(b); i++) {
         printf("b[%d] = %c \n", i, b[i]);

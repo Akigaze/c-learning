@@ -12,6 +12,11 @@
 - 按需分配
 
 ### 动态分配内存的函数
+内存分配相关的函数存放在 `stdlib.h` 这个头文件中，使用时需要手动引入
+```c
+#include<stdlib.h>
+```
+
 #### malloc 申请内存
 > void *malloc(int) 
 

@@ -14,3 +14,21 @@
 `char *strncpy (char *dest, const char *src, size_t n)`
 - 将 `src` 的前 n 个字符拷贝到 `dest`, 并不会拷贝 `\0`
 - 当 `n > strlen(src)` 时，多出的字符全部填充 `\0`
+
+## 字符串追加
+`char *strcat (char *dest, const char *src)`
+- 将 `src` 的内容拷贝追加到 `dest` 之后
+- 追加的位置时从 `dest` 的第一个 `\0` 开始，`src` 拷贝的部分是到第一个 `\0` 位置(包括 `\0`)
+- 使用时要保证 `dest` 后有足够多的空间
+
+`char *strncat (char *dest, const char *src, size_t)`
+- 将 `src` 的前 n 个字符拷贝追加到 `dest` 之后
+- 当 `n > strlen(src)` 时，多出的字符全部填充 `\0`
+
+## 字符串比较
+`int strcmp (const char *s1, const char *s2)`
+- 比较 `s1` 和 `s2` 是否相等，各自的第一个字符开始，逐个比较Ascii码，直到第一个大小不相等，或者第一个 `\0` 为止
+- 返回的结果有 **0**，**1**，**-1**
+
+`int strncmp (const char *s1, const char *s2, n)`
+- 比较 `s1` 和 `s2` 的前 `n` 个字符是否相等

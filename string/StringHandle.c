@@ -42,6 +42,75 @@ void testStrcpy() {
 }
 
 void testStrncpy() {
+    char hello[20] = "hello";
+    char pencil[10] = "pencil";
+    /*
+     * strncpy(dest, src, n)
+     * 复制 src 的前 n 个字符到 dest
+     */
+    strncpy(hello, pencil, 3);
+    printf("copy first 3 char of 'pencil' to 'hello': %s \n", hello);
+}
+
+void testStrcat() {
+    char hello[20] = "hello";
+    char world[8] = "world";
+    /*
+     * char *strcat (char *dest, const char *src)
+     * 将src的内容拷贝追加到dest之后
+     * 追加的位置时从dest的第一个\0 开始，src 拷贝的部分是到第一个 \0 位置(包括 \0)
+     */
+    strcat(hello, world);
+
+    printf("cat 'world' after 'hello': %s \n", hello);
+}
+
+void testStrncat() {
+    char hello[20] = "hello";
+    char pencil[10] = "pencil";
+    /*
+     * strncat(dest, src, n)
+     * 复制 src 的前 n 个字符并追加到 dest
+     */
+    strncat(hello, pencil, 3);
+    printf("cat first 3 char of 'pencil' to 'hello': %s \n", hello);
+}
+
+void testStrcmp() {
+    char s1[] = "beijing";
+    char s2[] = "beifeng";
+
+    /*
+     * int strcmp (const char *s1, const char *s2)
+     * 比较 s1 和 s2 是否相等，各自的第一个字符开始，逐个比较Ascii码，直到第一个大小不相等，或者第一个 \0 为止
+     * 返回的结果有 0，1，-1
+     */
+    int res = strcmp(s1, s2);
+    if (res == 0) {
+        printf("'%s' = '%s': %d \n", s1, s2, res);
+    } else if (res > 0) {
+        printf("'%s' > '%s': %d \n", s1, s2, res);
+    } else {
+        printf("'%s' < '%s': %d \n", s1, s2, res);
+    }
+}
+
+void testStrncmp() {
+    char s1[] = "beijing";
+    char s2[] = "beifeng";
+
+    /*
+     * int strncmp (const char *s1, const char *s2, n)
+     * 比较 s1 和 s2 的前 n 个字符是否相等
+     */
+    int res = strncmp(s1, s2, 3);
+    if (res == 0) {
+        printf("first 3 char of '%s' = '%s': %d \n", s1, s2, res);
+    } else if (res > 0) {
+        printf("first 3 char of '%s' > '%s': %d \n", s1, s2, res);
+    } else {
+        printf("first 3 char of '%s' < '%s': %d \n", s1, s2, res);
+    }
 }
 
 int main(int args, char *argv[]) {
@@ -51,4 +120,12 @@ int main(int args, char *argv[]) {
     testStrcpy();
     printf("--------------- 3. strncpy --------------- \n");
     testStrncpy();
+    printf("--------------- 4. strcpy --------------- \n");
+    testStrcat();
+    printf("--------------- 5. strncpy --------------- \n");
+    testStrncat();
+    printf("--------------- 6. strcmp --------------- \n");
+    testStrcmp();
+    printf("--------------- 7. strcmp --------------- \n");
+    testStrncmp();
 }

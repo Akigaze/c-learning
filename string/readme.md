@@ -32,3 +32,26 @@
 
 `int strncmp (const char *s1, const char *s2, n)`
 - 比较 `s1` 和 `s2` 的前 `n` 个字符是否相等
+
+## 字符查找
+`char *strchr (const char s*, int chr)`
+- 在字符串 `s` 中查找第一个ascii码是 `chr` 的字符，返回该字符的地址指针
+
+`char *strrchr (const char s*, int chr)`
+在字符串 `s` 中查找最后一个ascii码是 `chr` 的字符，返回该字符的地址指针
+
+## 字符串查找
+`char *strstr (const char haystack*, const char *needle)`
+- 在字符串 `haystack` 中找到第一个 `needle` 字符串的，返回其首字符的地址指针
+- 对于 `needle` 是去 `\0` 前的内容进行匹配
+
+## 字符串转数字
+`int atoi (const char *)`
+- 字符串转 int 数字
+
+`long atol (const char *)`
+- 字符串转 long 数字
+
+`double atof (const char *)`
+- 字符串转 double 数字
+

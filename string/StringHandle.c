@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 void testStrlen() {
     /*
@@ -36,7 +37,7 @@ void testStrcpy() {
      */
     strcpy(hello, pencil);
     printf("copy 'pencil' to 'hello world': %s \n", hello);
-    for (int i=0; i < sizeof(hello); i++) {
+    for (int i = 0; i < sizeof(hello); i++) {
         printf("[%c] - %d \n", hello[i], hello[i]);
     }
 }
@@ -113,6 +114,67 @@ void testStrncmp() {
     }
 }
 
+void testStrchr() {
+    char s[] = "hello world";
+    /*
+     * char *strchr (const char s*, int chr)
+     * 在字符串 s 中查找第一个ascii码是chr的字符，返回该字符的地址指针
+     */
+    char *res = strchr(s, 'o');
+    if (res == NULL) {
+        printf("could not find 'o' in 'hello world' \n");
+    } else {
+        // 使用数组变量与其中的元素的指针最差，可以获得这两个地址之间相差的元素个数
+        printf("the first 'o' in 'hello world' is at: %d \n", res - s);
+    }
+}
+
+void testStrrchr() {
+    char s[] = "hello world";
+    /*
+     * char *strrchr (const char s*, int chr)
+     * 在字符串 s 中查找最后一个ascii码是chr的字符，返回该字符的地址指针
+     */
+    char *res = strrchr(s, 'o');
+    if (res == NULL) {
+        printf("could not find 'o' in 'hello world' \n");
+    } else {
+        printf("the last 'o' in 'hello world' is at: %d \n", res - s);
+    }
+}
+
+void testStrstr() {
+    char s[] = "123:666:642:666:444:121";
+    /*
+     * char *strstr (const char haystack*, const char *needle)
+     * 在字符串 haystack 中找到第一个 needle 字符串的，返回其首字符的地址指针
+     * 对于 needle 是去 \0 前的内容进行匹配
+     */
+    char *res = strstr(s, "666");
+    if (res == NULL) {
+        printf("could not find '666' in '%s' \n", s);
+    } else {
+        printf("find first '666' in '%s' at:%d \n", s, res - s);
+    }
+}
+
+void testAtoiAtolAtof() {
+    char s1[] = "1024";
+    // atoi 字符转int整型
+    int i1 = atoi(s1);
+    printf("'%s' convert to int: %d \n", s1, i1);
+
+    char s2[] = "10241024";
+    // atol 字符转long整型
+    long l1 = atol(s2);
+    printf("'%s' convert to long: %ld  \n", s2, l1);
+
+    char s3[] = "3.1415926";
+    // atof 字符转double浮点数
+    double f1 = atof(s3);
+    printf("'%s' convert to double: %lf  \n", s3, f1);
+}
+
 int main(int args, char *argv[]) {
     printf("--------------- 1. strlen --------------- \n");
     testStrlen();
@@ -128,4 +190,12 @@ int main(int args, char *argv[]) {
     testStrcmp();
     printf("--------------- 7. strcmp --------------- \n");
     testStrncmp();
+    printf("--------------- 8. strchr --------------- \n");
+    testStrchr();
+    printf("--------------- 9. strrchr --------------- \n");
+    testStrrchr();
+    printf("--------------- 10. strrchr --------------- \n");
+    testStrstr();
+    printf("--------------- 11. atoi/atol/atof --------------- \n");
+    testAtoiAtolAtof();
 }

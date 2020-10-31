@@ -175,6 +175,77 @@ void testAtoiAtolAtof() {
     printf("'%s' convert to double: %lf  \n", s3, f1);
 }
 
+void testStrtok() {
+    /*
+     * char *strtok (char *str, const char *pattern)
+     * 类似与split，对字符串 str 使用 pattern 字符串进行切割，但是一次调用只进行一次切割，返回切割后得到的字符串
+     * 当要继续切割同一字符串时，要指定 str 参数为 NULL ，似乎 strtok 函数会记住上一个切割的字符串和切割后剩下的部分，在次此基础上继续切割
+     * 切割的原理是把遇到的第一个与 pattern 相符的子串的首字符替换成 \0 ，返回前的字串的首地址，并将切割光标移动到下一个与 pattern 不符的子串首地址
+     */
+    char str1[] = "111,222.333,444,5555";
+    printf("split %s \n", str1);
+    char *res1 = strtok(str1, ",");
+    printf("split %s by ',': %s \n", str1, res1);
+    char *res2 = strtok(NULL, ".");
+    printf("split %s by '.': %s \n", str1, res2);
+    char *res3 = strtok(NULL, ",");
+    printf("split %s by '.': %s \n", str1, res3);
+
+    char str2[] = "aaa,,bbb,ccc";
+    char *r1 = strtok(str2, ",");
+    char *r2 = strtok(NULL, ",");
+    char *r3 = strtok(NULL, ",");
+    printf("split %s by ',': %s \n", str2, r1);
+    printf("split %s by ',': %s \n", str2, r2);
+    printf("split %s by ',': %s \n", str2, r3);
+    for (int i = 0; i < sizeof(str2); ++i) {
+        printf("%c \n", str2[i]);
+    }
+
+    char str3[] = "123,456,222,333";
+    char *res = strtok(str3, ",");
+    while (res != NULL) {
+        printf("split %s by ',': '%s' \n", str3, res);
+        res = strtok(NULL, ",");
+    }
+
+}
+
+void testSprintf() {
+    char buff[20];
+
+    /*
+     * int sprintf (char *buff, const char *format, args...)
+     * 类似于printf，把格式化的结果复制到数组 buff 中
+     */
+    sprintf(buff, "%d:%d:%c", 100, 333, 'f');
+
+    printf("buff = %s \n", buff);
+}
+
+void testSscanf() {
+    int a, b;
+    char c;
+
+    /*
+     * int sscanf (const char *str, const char *format, args...)
+     * 类似于scanf , 将 str 根据 format 指定的格式，将分离得到的内容存放的指定的地址
+     */
+    sscanf("123:666.f", "%d:%d.%c", &a, &b, &c);
+    printf("a = %d, b = %d, c = %c \n", a, b, c);
+
+    char buff[10];
+    // 使用 %* 可以跳过指定的字符，不对指定格式的内容进行保存
+    sscanf("4444 5555", "%*d %s", buff);
+    printf("buff = %s \n", buff);
+    // 使用 %n 指定格式化的字符个数
+    sscanf("hello world", "%6s", buff);
+    printf("buff = %s \n", buff);
+    // 使用 %[] 类似正则表达式的方式对字符进行匹配
+    sscanf("aWfd45hJK", "%[a-zA-Z]", buff);
+    printf("buff = %s \n", buff);
+}
+
 int main(int args, char *argv[]) {
     printf("--------------- 1. strlen --------------- \n");
     testStrlen();
@@ -198,4 +269,11 @@ int main(int args, char *argv[]) {
     testStrstr();
     printf("--------------- 11. atoi/atol/atof --------------- \n");
     testAtoiAtolAtof();
+    printf("--------------- 12. strtok --------------- \n");
+    testStrtok();
+
+    printf("--------------- 13. sprintf --------------- \n");
+    testSprintf();
+    printf("--------------- 14. sscanf --------------- \n");
+    testSscanf();
 }

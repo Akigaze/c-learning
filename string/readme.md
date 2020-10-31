@@ -46,6 +46,8 @@
 - 对于 `needle` 是去 `\0` 前的内容进行匹配
 
 ## 字符串转数字
+这几个函数都是在 `stdlib.h` 头文件中的
+
 `int atoi (const char *)`
 - 字符串转 int 数字
 
@@ -54,4 +56,21 @@
 
 `double atof (const char *)`
 - 字符串转 double 数字
+
+## 字符串切割
+`char *strtok (char *str, const char *pattern)`
+- 类似与split，对字符串 `str` 使用 `pattern` 字符串进行切割，但是一次调用只进行一次切割，返回切割后得到的字符串
+- 当要继续切割同一字符串时，要指定 `str` 参数为 `NULL` ，似乎 `strtok` 函数会记住上一个切割的字符串和切割后剩下的部分，在次此基础上继续切割
+- 切割的原理是把遇到的第一个与 `pattern` 相符的子串的首字符替换成 `\0` ，返回前的字串的首地址，并将切割光标移动到下一个与 `pattern` 不符的子串首地址
+- 该函数会修改原有的字符串，使用时要注意
+
+## 字符串格式化
+`int sprintf (char *buff, const char *format, args...)`
+- 类似于 `printf`，把格式化的结果复制到数组 `buff` 中
+
+`int sscanf (const char *str, const char *format, args...)`
+- 类似于 `scanf` , 将 `str` 根据 `format` 指定的格式，将分离得到的内容存放的指定的地址
+- 使用 `%*` 可以跳过指定的字符，不对指定格式的内容进行保存
+- 使用 `%n` 指定格式化的字符个数
+- 使用 `%[]` 类似正则表达式的方式对字符进行匹配
 

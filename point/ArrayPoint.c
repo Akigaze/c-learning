@@ -6,7 +6,7 @@
 
 void initTest2();
 
-void test1() {
+void arrayPoint() {
     // 声明一个二维数组
     int a[3][4];
     // 声明一个数组指针，使用 (*变量名) 的方式声明，使用指针的方式来存放数组，后面的[4] 表示每个数组的元素个数
@@ -28,7 +28,7 @@ void update(int (*p)[4]) {
     p[0][0] = 3;
 }
 
-void test2() {
+void arrayPointAsParam() {
     int a[3][4] = {0};
     update(a);
     for (int i = 0; i < 3; ++i) {
@@ -40,7 +40,7 @@ void test2() {
 }
 
 //对数组取地址，实际是数组升级
-void test3() {
+void addressOfArray() {
     int a[5];
     // a 指向数组0元素首地址，所以 +1 是移动到下一个元素(int 4个字节)
     printf("a = %p \n", a);
@@ -50,7 +50,7 @@ void test3() {
     printf("&a + 1 = %p \n", &a + 1);
 }
 
-void test4() {
+void valueOfArray() {
     int a[2][5];
     // a 指向二维数组中第一个数组的首地址，所以 +1 是移动到下一个数组(int[5] 4*5个字节)
     printf("a = %p \n", a);
@@ -63,11 +63,11 @@ void test4() {
 
 int main() {
     printf("------------- array point ------------ \n");
-    test1();
+    arrayPoint();
     printf("------------- array point as param ------------ \n");
-    test2();
+    arrayPointAsParam();
     printf("------------- address of array ------------ \n");
-    test3();
+    addressOfArray();
     printf("------------- value of array ------------ \n");
-    test4();
+    valueOfArray();
 }

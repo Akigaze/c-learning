@@ -1,3 +1,6 @@
+## Learning Resource
+[Bilibili 千锋-嵌入式物联网教程](https://www.bilibili.com/video/BV1FA411v7YW)
+
 ## CLion
 #### 使用CMake构建执行项目
 编写CMakeLists.txt 文件，右键该文件，点击 `Reload CMake Project` 可以重新构建 **cmake-build-debug** folder，

@@ -21,14 +21,14 @@ int main(int args, char *argv[]) {
     bucket1.wood2 = 200;
     bucket1.wood3 = 300;
 
-    printf("sizeof Bucket: %d \n", sizeof(bucket1));
+    printf("sizeof Bucket: %llu \n", sizeof(bucket1));
     printf("bucket1 > wood1: %d, wood2: %d, wood3: %d \n", bucket1.wood1, bucket1.wood2, bucket1.wood3);
 
     union Bucket bucket2 = {50};
     printf("bucket2 > wood1: %d, wood2: %d, wood3: %d \n", bucket2.wood1, bucket2.wood2, bucket2.wood3);
 
     union Flower sunflower = {112};
-    printf("sizeof Flower: %d \n", sizeof(sunflower));
+    printf("sizeof Flower: %llu \n", sizeof(sunflower));
     printf("sunflower > num: %d, color: %c \n", sunflower.num, sunflower.color);
 
     sunflower.color = 'X';

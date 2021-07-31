@@ -61,10 +61,10 @@ void printStudent(struct Student stu) {
 
 int main(int args, char *argv[]) {
 
-    printf("sizeof Student: %d \n", sizeof(struct Student));
-    printf("sizeof Date: %d \n", sizeof(Date));
-    printf("sizeof STUDENT: %d \n", sizeof(STUDENT));
-    printf("sizeof Card: %d \n", sizeof(Card));
+    printf("sizeof Student: %llu \n", sizeof(struct Student));
+    printf("sizeof Date: %llu \n", sizeof(Date));
+    printf("sizeof STUDENT: %llu \n", sizeof(STUDENT));
+    printf("sizeof Card: %llu \n", sizeof(Card));
 
 
     struct Student lily = {1, "Lily", 'f', 19}, bob;
@@ -116,47 +116,47 @@ int main(int args, char *argv[]) {
     printf("Student name: %s, id: %d, gender: %c, age: %d \n", p_any->name, p_any->id, p_any->gender, p_any->age);
 
     printf("----------- memory of struct ------------- \n");
-    struct{
+    struct {
         int num;
         int age;
     } s1;
-    printf("sizeof S1: %d \n", sizeof(s1));
+    printf("sizeof S1: %llu \n", sizeof(s1));
     printf("num: %p, age: %p \n", &(s1.num), &(s1.age));
 
-    struct{
+    struct {
         char gender;
         int age;
     } s2;
-    printf("sizeof S2: %d \n", sizeof(s2));
+    printf("sizeof S2: %llu \n", sizeof(s2));
     printf("gender: %p, age: %p \n", &(s2.gender), &(s2.age));
 
-    struct{
+    struct {
         char gender;
         short age;
         int high;
     } s3;
-    printf("sizeof S3: %d \n", sizeof(s3));
+    printf("sizeof S3: %llu \n", sizeof(s3));
     printf("gender: %p, age: %p, high: %p \n", &(s3.gender), &(s3.age), &(s3.high));
 
-    struct{
+    struct {
         char gender;
         int high;
         short age;
     } s4;
-    printf("sizeof S4: %d \n", sizeof(s4));
+    printf("sizeof S4: %llu \n", sizeof(s4));
     printf("gender: %p, high: %p, age: %p \n", &(s4.gender), &(s4.high), &(s4.age));
 
-    struct{
+    struct {
         char name[10];
         int age;
     } s5;
-    printf("sizeof S5: %d \n", sizeof(s5));
+    printf("sizeof S5: %llu \n", sizeof(s5));
     printf("name: %p, age: %p \n", &(s5.name), &(s5.age));
 
     printf("----------- weiduan ------------- \n");
     struct {
-        unsigned int a:3;
-        char c:4;
+        unsigned int a: 3;
+        char c: 4;
     } d1;
     d1.a = 5;
     d1.c = '8';

@@ -10,15 +10,15 @@ int main() {
     int intInteger = 1024;
     long longInteger = LONG_MAX;
     long long longLongInteger = 9223372036854775000L;
-    printf("short: 2个字节: %d, size is: %d byte\n", shortInteger, sizeof(shortInteger));
-    printf("int: 2个或4个字节，不同操作系统可能不同: %d, size is %d byte\n", intInteger, sizeof(intInteger));
-    printf("long: 4个字节: %ld, size is %d byte\n", longInteger, sizeof(longInteger));
-    printf("long long: 8个字节: %lld, size is %d byte\n", longLongInteger, sizeof(longLongInteger));
+    printf("short: 2个字节: %d, size is: %llu byte\n", shortInteger, sizeof(shortInteger));
+    printf("int: 2个或4个字节，不同操作系统可能不同: %d, size is %llu byte\n", intInteger, sizeof(intInteger));
+    printf("long: 4个字节: %ld, size is %llu byte\n", longInteger, sizeof(longInteger));
+    printf("long long: 8个字节: %lld, size is %llu byte\n", longLongInteger, sizeof(longLongInteger));
 
     printf("------ 字符类型 ------\n");
     char aChar = 'X';
     int integerOfChar = aChar;
-    printf("char: 1个字节: %c, size is %d byte, 对应的整型为: %d\n", aChar, sizeof(integerOfChar), integerOfChar);
+    printf("char: 1个字节: %c, size is %llu byte, 对应的整型为: %d\n", aChar, sizeof(integerOfChar), integerOfChar);
 
     printf("------ 进制 -------\n");
     int hundred = 100;

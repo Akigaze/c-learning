@@ -13,17 +13,17 @@ void testStrlen() {
      * 对比 sizeof 是获取一个变量所分配的字节数，数组就是其声明时的大小，指针变量就是4个字节(32位)
      */
     char hello[20] = "hello";
-    printf("string length of hello: %d \n", strlen(hello));
-    printf("size of hello: %d \n", sizeof(hello));
+    printf("string length of hello: %llu \n", strlen(hello));
+    printf("size of hello: %llu \n", sizeof(hello));
 
     char pencil[10] = "pen\0cil";
     printf("string pen\\0cil: %s \n", pencil);
-    printf("string length of pencil: %d \n", strlen(pencil));
-    printf("size of pencil: %d \n", sizeof(pencil));
+    printf("string length of pencil: %llu \n", strlen(pencil));
+    printf("size of pencil: %llu \n", sizeof(pencil));
 
     char *sunny = "sunny";
-    printf("string length of sunny: %d \n", strlen(sunny));
-    printf("size of sunny: %d \n", sizeof(sunny));
+    printf("string length of sunny: %llu \n", strlen(sunny));
+    printf("size of sunny: %llu \n", sizeof(sunny));
 }
 
 void testStrcpy() {
@@ -125,7 +125,7 @@ void testStrchr() {
         printf("could not find 'o' in 'hello world' \n");
     } else {
         // 使用数组变量与其中的元素的指针最差，可以获得这两个地址之间相差的元素个数
-        printf("the first 'o' in 'hello world' is at: %d \n", res - s);
+        printf("the first 'o' in 'hello world' is at: %lld \n", res - s);
     }
 }
 
@@ -139,7 +139,7 @@ void testStrrchr() {
     if (res == NULL) {
         printf("could not find 'o' in 'hello world' \n");
     } else {
-        printf("the last 'o' in 'hello world' is at: %d \n", res - s);
+        printf("the last 'o' in 'hello world' is at: %lld \n", res - s);
     }
 }
 
@@ -154,7 +154,7 @@ void testStrstr() {
     if (res == NULL) {
         printf("could not find '666' in '%s' \n", s);
     } else {
-        printf("find first '666' in '%s' at:%d \n", s, res - s);
+        printf("find first '666' in '%s' at:%lld \n", s, res - s);
     }
 }
 

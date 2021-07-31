@@ -37,10 +37,10 @@ int main() {
     float *y;
     double *z;
     // 指针的大小为4个字节
-    printf("sizeof(m) = %d \n", sizeof(m));
-    printf("sizeof(n) = %d \n", sizeof(n));
-    printf("sizeof(w) = %d \n", sizeof(w));
-    printf("sizeof(x) = %d \n", sizeof(x));
-    printf("sizeof(y) = %d \n", sizeof(y));
-    printf("sizeof(z) = %d \n", sizeof(z));
+    printf("sizeof(m) = %llu \n", sizeof(m));
+    printf("sizeof(n) = %llu \n", sizeof(n));
+    printf("sizeof(w) = %llu \n", sizeof(w));
+    printf("sizeof(x) = %llu \n", sizeof(x));
+    printf("sizeof(y) = %llu \n", sizeof(y));
+    printf("sizeof(z) = %llu \n", sizeof(z));
 }
